@@ -13,11 +13,8 @@ class Program
             GithubProjectsRelativePath = "Binaries",
             GithubProjectsDirectory = OverviewProjectDirectory + GithubProjectsRelativePath;
 
-        var nuget = new Nuget();
         var projects = new Projects(KornDirectory);
         var githubProjects = new GithubProjects(GithubProjectsDirectory);
-
-        var p = nuget.GetPackage("Newtonsoft.Json", "net6.0");
 
         using var git = new GitManager(OverviewProjectDirectory);
         git.Pull();
