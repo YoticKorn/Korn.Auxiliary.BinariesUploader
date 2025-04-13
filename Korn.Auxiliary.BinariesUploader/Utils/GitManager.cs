@@ -4,7 +4,7 @@ class GitManager : IDisposable
 {
     public GitManager(string projectPath)
     {
-        cmd = new CommandLine();
+        cmd = new CommandLine(outputHandler: Console.WriteLine);
         cmd.WriteLine($"cd \"{projectPath}\"");
     }
 
@@ -13,6 +13,7 @@ class GitManager : IDisposable
     GitManager Execute(string line)
     {
         cmd.WriteLine(line);
+        Thread.Sleep(500);
         return this;
     }
 
